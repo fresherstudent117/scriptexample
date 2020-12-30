@@ -1,0 +1,151 @@
+<html>
+<head>
+<style>
+body
+{
+//background-image:url("https://i.pinimg.com/474x/27/bc/a1/27bca1fc0189fe11678c8ab0b4dc0dd2.jpg");
+//background-image:url("https://image.freepik.com/free-photo/brick-wall-neon-light_47243-765.jpg");
+background-image:url("https://image.freepik.com/free-vector/neon-grid-background_53876-91657.jpg");
+background-size:cover;
+}
+#q,#a
+{
+color:white;
+border:2px solid black;
+width:400px;
+margin:auto;
+margin-top:200px;
+background-color:rgba(0,0,0,0.5);
+box-shadow:20px 20px 50px 15px #304271;  
+padding-top:30px;
+padding-left:30px;
+color:white;
+font-family:MV Boli;
+}
+input[type=text],select
+{
+height:30px;
+outline:none;
+text-align:center;
+border-radius:30px;
+}
+input[type=button]
+{
+margin-left:100px;
+width:100px;
+border-radius:20px;
+background-color:red;
+color:white;
+height:30px;
+outline:none;
+margin-bottom:30px;
+}
+#a
+{
+height:50px;
+margin-top:50px;
+}
+#go
+{
+background-color:gold;
+margin-left:650px;
+width:100px;
+height:30px;
+outline:none;
+border-radius:20px;
+margin-top:30px;
+}
+#show
+{
+background-color:deeppink;
+width:100px;
+border-radius:20px;
+color:white;
+height:30px;
+outline:none;
+}
+</style>
+<script>
+var a=[];
+function gen()
+{
+var opt=document.getElementById("sel").value;
+if(opt=="push Method")
+{
+var y = document.getElementById("text").value;
+a.push(y);
+document.getElementById("a").innerHTML="The given value is pushed to array";
+}
+if(opt=="pop Method")
+{
+var z=a.pop();
+document.getElementById("a").innerHTML=" The popped element is "+z;
+}
+if(opt=="reverse Method")
+{
+a.reverse();
+document.getElementById("a").innerHTML=" The array is reversed";
+}
+if(opt=="sort Method")
+{
+a.sort();
+document.getElementById("a").innerHTML=" The array is sorted";
+}
+if(opt=="includes Method")
+{
+var num=document.getElementById("text").value;
+if(a.includes(num))
+document.getElementById("a").innerHTML=" The given element is present in array";
+else
+document.getElementById("a").innerHTML=" The given element is 'not' present in array";
+}
+}
+function show()
+{
+if(a.length==0)
+document.getElementById("a").innerHTML="array is empty";
+else
+document.getElementById("a").innerHTML="The elements in array are "+a;
+}
+function fun()
+{
+var opt=document.getElementById("sel").value;
+if(opt=="pop Method"||opt=="reverse Method"||opt=="sort Method")
+{
+document.getElementById("text").style.display="none";
+document.getElementById("label").style.display="none";
+}
+if(opt=="push Method")
+{
+document.getElementById("text").style.display="inline";
+document.getElementById("label").style.display="inline";
+document.getElementById("label").innerHTML="enter the value to push";
+}
+if(opt=="includes Method")
+{
+document.getElementById("text").style.display="inline";
+document.getElementById("label").style.display="inline";
+document.getElementById("label").innerHTML="enter the value to check";
+}
+}
+</script>
+</head>
+<body>
+<div id="q">
+<label>Select a Method</label>
+<select id="sel" onchange="fun()">
+<option>push Method</option>
+<option>pop Method</option>
+<option>reverse Method</option>
+<option>sort Method</option>
+<option>includes Method</option>
+</select><br/><br/>
+<label id="label">Enter the number to push</label>
+<input type="text" id="text"><br/><br/>
+<input type="button" value="Done" onclick="gen()"></button>
+<button id="show" onclick="show()">Show array</button>
+</div>
+<div id="a">The array is empty</div>
+<a href="index.html"><button id="go">Go Back</button>
+</body>
+</html>

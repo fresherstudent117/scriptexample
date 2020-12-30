@@ -1,0 +1,131 @@
+<html>
+<head>
+<style>
+body
+{
+background-image:url("https://us.123rf.com/450wm/lisala/lisala1607/lisala160700101/60142046-abstract-background-with-transparent-group-of-numbers.jpg?ver=6");
+background-size:cover;
+}
+#q,#a
+{
+font-family:MV Boli;
+padding:30px;
+width:350px;
+border:2px solid black;
+box-shadow:20px 20px 50px 15px #788083;
+margin-left:100px;
+margin-top:100px;
+}
+#sel,input[type=number]
+{
+border-radius:30px;
+outline:none;
+}
+input[type=button]
+{
+margin-left:100px;
+width:100px;
+border-radius:20px;
+background-color:black;
+color:white;
+height:30px;
+outline:none;
+}
+#a
+{
+margin-top:100px;
+}
+#go
+{
+background-color:blue;
+color:white;
+margin-left:250px;
+width:100px;
+height:30px;
+outline:none;
+border-radius:20px;
+margin-top:30px;
+}
+</style>
+<script>
+function gen()
+{
+var method=document.getElementById("sel").value;
+var num=parseInt(document.getElementById("num").value);
+if(method=="abs Method")
+{
+var x=Math.abs(num);
+document.getElementById("a").innerHTML="The absolute value of given number is "+x;
+}
+if(method=="cbrt Method")
+{
+var x=Math.cbrt(num);
+document.getElementById("a").innerHTML="The cbrt value of given number is "+x;
+}
+if(method=="floor Method")
+{
+var x=Math.floor(num);
+document.getElementById("a").innerHTML="The floor value of given number is "+x;
+}
+if(method=="pow Method")
+{
+var x=document.getElementById("num").value;
+var y =document.getElementById("num2").value;
+document.getElementById("a").innerHTML="The pow value of given  base and exponent is "+Math.pow(x,y);
+}
+if(method=="random Method")
+{
+document.getElementById("a").innerHTML="The random number between 1 and 0 is "+Math.random();
+}
+}
+function changefun()
+{
+var opt=document.getElementById("sel").value;
+if(opt=="pow Method")
+{
+document.getElementById("label2").style.display="inline";
+document.getElementById("num2").style.display="inline";
+document.getElementById("label1").style.display="inline";
+document.getElementById("label1").innerHTML="Enter The Base";
+document.getElementById("num").style.display="inline";
+}
+else if(opt=="random Method")
+{
+document.getElementById("label2").style.display="none";
+document.getElementById("num").style.display="none";
+document.getElementById("num2").style.display="none";
+document.getElementById("label1").style.display="none";
+}
+else
+{
+document.getElementById("label2").style.display="none";//display none
+document.getElementById("num2").style.display="none"; //display none
+document.getElementById("label1").style.display="inline";//display inline
+document.getElementById("label1").innerHTML="Enter The Number";
+document.getElementById("num").style.display="inline";
+}
+}
+</script>
+</head>
+<body>
+<div id="q">
+<label>Select a Method</label>
+<select id="sel" onchange="changefun()">
+<option>abs Method</option>
+<option>cbrt Method</option>
+<option>floor Method</option>
+<option>pow Method</option>
+<option>random Method</option>
+</select><br/><br/>
+<label id="label1">Enter a Number</label>
+<input type="number" id="num"><br/><br/>
+<label id="label2" style="display:none;">Enter the exponent </label>
+<input type="number" id="num2" style="display:none;"><br/><br/>
+<input type="button" value="Done" onclick="gen()" id="ok">
+</div>
+<div id="a">
+</div>
+<a href="index.html"><button id="go">Go Back</button>
+</body>
+</html>
+

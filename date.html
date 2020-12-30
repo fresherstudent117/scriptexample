@@ -1,0 +1,79 @@
+<html>
+<head>
+<style>
+body
+{
+background-image:url("https://i.pinimg.com/originals/4a/08/15/4a0815ec4879231e6cec4e2cf0edc372.jpg");
+background-size:cover;
+}
+#q,#a
+{
+border:2px solid black;
+width:600px;
+margin:auto;
+margin-top:70px;
+background-color:rgba(0,0,0,0.5);
+box-shadow:20px 20px 50px 15px #304271;  
+padding-top:30px;
+padding-left:30px;
+color:white;
+font-family:MV Boli;
+font-size:20px;
+}
+input[type=button]
+{
+margin-left:200px;
+width:100px;
+border-radius:20px;
+background-color:gold;
+height:30px;
+outline:none;
+margin-bottom:30px;
+}
+#go
+{
+background-color:red;
+color:white;
+margin-left:650px;
+width:100px;
+height:30px;
+outline:none;
+border-radius:20px;
+margin-top:30px;
+}
+
+</style>
+<script>
+function gen()
+{
+var date=new Date();
+ var ele = document.getElementsByName("method"); 
+ if(ele[0].checked==true)
+ document.getElementById("a").innerHTML="The current Year is "+date.getFullYear();
+ if(ele[1].checked==true)
+ document.getElementById("a").innerHTML="The current Month is "+date.getMonth()+"th month";
+if(ele[2].checked==true)
+ document.getElementById("a").innerHTML="The current Date is "+date.getDate();
+ if(ele[3].checked==true)
+ document.getElementById("a").innerHTML="The current Hour is "+date.getHours();
+if(ele[4].checked==true)
+ document.getElementById("a").innerHTML="The current Minute is "+date.getMinutes();
+
+
+ }
+</script>
+</head>
+<body>
+<div id="q">
+<center><h1>Select the Method</h1></center>
+<input type="radio" name="method" value="getFullYear()">getFullYear()
+<input type="radio" name="method" value="getMonth()" style="margin-left:50px;">getMonth()
+<input type="radio" name="method" value="getDate()" style="margin-left:50px;">getDate()<br/><br/>
+<input type="radio" name="method" value="getHours()" style="margin-left:100px;">getHours()
+<input type="radio" name="method" value="getMinutes()" style="margin-left:100px;">getMinutes()<br/><br/>
+<input type="button" value="Done" onclick="gen()">
+</div>
+<div id="a"></div>
+<a href="index.html"><button id="go">Go Back</button>
+</body>
+</html>

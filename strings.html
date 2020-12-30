@@ -1,0 +1,138 @@
+<html>
+<head>
+<style>
+body
+{
+background-image:url("https://i.pinimg.com/originals/56/80/ed/5680eddc43918eb1858e2fb2ec0050eb.jpg");
+background-size:cover;
+}
+#q,#a
+{
+border:2px solid black;
+width:400px;
+margin:auto;
+margin-top:100px;
+background-color:rgba(0,0,0,0.5);
+box-shadow:20px 20px 50px 15px #304271;  
+padding-top:30px;
+padding-left:30px;
+color:white;
+font-family:MV Boli;
+}
+
+input[type=text],select
+{
+height:30px;
+outline:none;
+text-align:center;
+border-radius:30px;
+}
+input[type=button]
+{
+margin-left:100px;
+width:100px;
+border-radius:20px;
+background-color:black;
+color:white;
+height:30px;
+outline:none;
+margin-bottom:30px;
+}
+#a
+{
+height:50px;
+}
+#go
+{
+background-color:blue;
+color:white;
+margin-left:650px;
+width:100px;
+height:30px;
+outline:none;
+border-radius:20px;
+margin-top:30px;
+}
+
+</style>
+<script>
+function gen()
+{
+var x = document.getElementById("text1").value;
+var opt=document.getElementById("sel").value;
+if(opt=="toLowerCase Method")
+{
+document.getElementById("a").innerHTML="The Lowercase of given string is "+x.toLowerCase();
+}
+if(opt=="toUpperCase Method")
+{
+document.getElementById("a").innerHTML="The Uppercase of given string is "+x.toUpperCase();
+}
+if(opt=="charAt Method")
+{
+var y = parseInt(document.getElementById("text2").value);
+document.getElementById("a").innerHTML="The Character present at given index is  "+x.charAt(y);
+}
+if(opt=="indexOf Method")
+{
+var y = document.getElementById("text2").value;
+document.getElementById("a").innerHTML="The index of  given character is  "+x.indexOf(y);
+}
+if(opt=="concat Method")
+{
+var y = document.getElementById("text2").value;
+document.getElementById("a").innerHTML="The concatinated string is  "+x.concat(y);
+}
+}
+function change()
+{
+
+var opt=document.getElementById("sel").value;
+if(opt=="toLowerCase Method" || opt=="toUpperCase Method")
+{
+document.getElementById("label2").style.display="none";
+document.getElementById("text2").style.display="none";
+}
+if(opt=="charAt Method")
+{
+document.getElementById("label2").style.display="inline";
+document.getElementById("label2").innerHTML="enter the index";
+document.getElementById("text2").style.display="inline";
+}
+if(opt=="indexOf Method")
+{
+document.getElementById("label2").style.display="inline";
+document.getElementById("label2").innerHTML="enter the character";
+document.getElementById("text2").style.display="inline";
+}
+if(opt=="concat Method")
+{
+document.getElementById("label2").style.display="inline";
+document.getElementById("label2").innerHTML="enter the string to concat";
+document.getElementById("text2").style.display="inline";
+}
+
+}
+</script>
+</head>
+<body>
+<!--<img src="https://thumbs.dreamstime.com/b/string-word-concept-string-word-concept-cubes-142728047.jpg">-->
+<div id="q">
+<label id="label1">Enter the string</label>
+<input type="text" id="text1" required="required"><br/><br/>
+<label>select a method</label>
+<select id="sel" onchange="change()">
+<option>toLowerCase Method</option>
+<option>toUpperCase Method</option>
+<option>charAt Method</option>
+<option>indexOf Method</option>
+<option>concat Method</option>
+</select><br/><br/>
+<label id="label2" style="display:none;">Enter the string</label>
+<input type="text"  style="display:none;" id="text2"><br/><br/>
+<input type="button" onclick="gen()" value="Go"/>
+</div>
+<div id="a"></div>
+<a href="index.html"><button id="go">Go Back</button>
+</body>
+</html>
